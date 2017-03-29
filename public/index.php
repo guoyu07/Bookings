@@ -29,32 +29,27 @@ $application = new Zend_Application(
 $FrontController = Zend_Controller_Front::getInstance();
 $Router = $FrontController->getRouter();
 
+
 $Router->addRoute("/",
-    new Zend_Controller_Router_Route(
+    new Zend_Controller_Router_Route
+    (
         "/",
-        array(
-            "controller" => "book",
-            "action" => "index"
-            )
-    ));
-
-$Router->addRoute("/index",
-    new Zend_Controller_Router_Route(
-        "/index",
-        array(
-            "controller" => "book",
-            "action" => "index"
-        )
-    ));
-
-$Router->addRoute("/success",
-    new Zend_Controller_Router_Route(
-        "/success",
         array(
             "controller" => "book",
             "action" => "success"
         )
     ));
+
+$Router->addRoute("/success",
+    new Zend_Controller_Router_Route
+    (
+        "/",
+        array(
+            "controller" => "book",
+            "action" => "success"
+        )
+    ));
+
 
 
 

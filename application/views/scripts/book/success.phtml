@@ -31,7 +31,7 @@
                 eventLimit: true,
                 dayClick: function(date, jsEvent, view) {
                     var day = date.format(); //day clicked from calendar
-                    $.redirect('/index', {'clickedday': day});  //redirect to calendar with clicked date string value
+                    $.redirect('/bookings/public/book/', {'clickedday': day});  //redirect to calendar with clicked date string value
                 },
                 events: <?php echo $events;?>
             })
