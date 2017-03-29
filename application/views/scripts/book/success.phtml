@@ -1,16 +1,18 @@
-<a href="index">
-    <center><button class="">Book New Time</button></center>
-</a>
+
 
 <?php $events = (Zend_Json::encode($this->bookings));?>
 
 
 <head>
     <title></title>
+    <link href="<?php echo $this->baseUrl() ?>/css/bootstrap.min.css" rel="stylesheet">
     <link rel='stylesheet' href="<?php echo $this->baseUrl()?>/css/fullcalendar.min.css "/>
     <script src="<?php echo $this->baseUrl()?>/js/jquery.min.js"></script>
     <script src="<?php echo $this->baseUrl()?>/js/moment.min.js"></script>
     <script src="<?php echo $this->baseUrl()?>/js/fullcalendar.js"></script>
+    <script src="<?php echo $this->baseUrl()?>/js/jquery.redirect.js"></script>
+
+
     <script type="text/javascript">
         $(document).ready(function() {
 
@@ -27,6 +29,10 @@
                 selectable: true,
                 selectHelper: true,
                 eventLimit: true,
+                dayClick: function(date, jsEvent, view) {
+                    var day = date.format(); //day clicked from calendar
+                    $.redirect('/index', {'clickedday': day});  //redirect to calendar with clicked date string value
+                },
                 events: <?php echo $events;?>
             })
 
@@ -48,26 +54,15 @@
 </head>
 <body>
 
+<center>
+    <a href="index" class="text-center">
+    Book New Time
+    </a>
+</center>
+
 <div id='calendar'></div>
+
 
 
 </body>
 
-
-
-
-
-<?php
-
-//echo count($this->bookings);
-
-/*foreach($this->bookings as $booking){
-    echo($booking[''] . ) ;
-}
-*/
-
-
-
-
-
-?>

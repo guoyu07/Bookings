@@ -1,7 +1,4 @@
-<br /><br />
-<div id="view-content">
-	<p>View script for controller <b>Book</b> and script/action name <b>index</b></p>
-</div>
+
 
 
 <head>
@@ -18,8 +15,7 @@
     <!-- Bootstrap core CSS -->
     <link href="<?php echo $this->baseUrl() ?>/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
 
     <!-- Custom styles for this template -->
     <link href="<?php echo $this->baseUrl() ?>/css/style.css" rel="stylesheet">
@@ -37,10 +33,18 @@
 
 <body>
 
+<center>
+    <a href="success" class="text-center">Go to Calendar</button></a>
+</center>
+
+
+
 <div class="container">
 
+
+
     <form class="form-signin" action="success" method="post">
-        <h2 class="form-signin-heading">Book Room</h2>
+        <h2 class="form-signin-heading text-center" >Book Room</h2>
         <!-- title-->
         <label for="inputTitle" class="sr-only">Email address</label>
         <input type="text" name="title" id="inputTitle" class="form-control" placeholder="Title" required autofocus>
@@ -48,12 +52,12 @@
         <!--Day-->
 
         <label for="inputDate" class="sr-only">Day</label>
-        <input type="date" name="day" id="inputDate" class="form-control"  required>
+        <input type="date" name="day" id="inputDate" class="form-control"  value="<?php echo $_POST['clickedday'];?>" required>
 
         <!--Start-->
 
         <label for="inputStartTime" class="sr-only">Start</label>
-        <input type="time" name="start" id="inputStartTime" class="form-control"  required>
+        <input type="time" name="start" id="inputStartTime" class="form-control"   required>
 
         <!--End-->
 
@@ -68,7 +72,6 @@
 </div> <!-- /container -->
 
 
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="<?php echo $this->baseUrl()?>/js/ie10-viewport-bug-workaround.js"></script>
+
 </body>
 </html>
