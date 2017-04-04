@@ -11,6 +11,9 @@ class IndexController extends Zend_Controller_Action
     public function indexAction()
     {
         // action body
+        $newconfig = new Application_Model_Book();
+        $newconfig->newConfig('roombooker','root','');
+
     }
 
 

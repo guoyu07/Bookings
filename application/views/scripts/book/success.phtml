@@ -29,9 +29,9 @@
                 selectable: true,
                 selectHelper: true,
                 eventLimit: true,
-                dayClick: function(date, jsEvent, view) {
-                    var day = date.format(); //day clicked from calendar
-                    $.redirect('/bookings/public/book/', {'clickedday': day});  //redirect to calendar with clicked date string value
+                dayClick: function(date, jsEvent, view) { //click function
+                    var day = date.format(); //day clicked on calendar
+                    $.redirect('/bookings/public/book/', {'clickedday': day});  //redirect to booking page parsing day
                 },
                 events: <?php echo $events;?>
             })
@@ -54,11 +54,7 @@
 </head>
 <body>
 
-<center>
-    <a href="index" class="text-center">
-    Book New Time
-    </a>
-</center>
+
 
 <div id='calendar'></div>
 

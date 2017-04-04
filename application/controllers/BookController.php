@@ -5,20 +5,20 @@ class BookController extends Zend_Controller_Action
 
     public function init()
     {
-        /* Initialize action controller here */
+
     }
 
     public function indexAction()
     {
 
+
     }
-
-
 
 
     public function successAction() //post to db and displays calendar
     {
         $book_room = new Application_Model_Book();
+
 
         if ($this->_request->isPost()){
             $day    = $this->getParam('day');// $_POST['day'];
@@ -38,8 +38,17 @@ class BookController extends Zend_Controller_Action
             $book_room->bookRoom($query_params);
         }
 
-
-        $bookings = $book_room->getBookings();
+        try{
+            $bookings = $book_room->getBookings();
+        }
+        catch (Exception $e){
+            if($e->getCode() ==  504){
+                $this->_redirect('/index/index');
+            }
+            else{
+                throw $e;
+            }
+        }
         $this->view->bookings = $bookings;
     }
 
