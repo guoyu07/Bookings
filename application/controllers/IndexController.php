@@ -20,7 +20,6 @@ class IndexController extends Zend_Controller_Action
     {
         if ($this->_request->isPost()){
             $newconfig = new Application_Model_Book();
-            echo $_POST['db_username'];
             $newconfig->newConfig($_POST['db_name'],$_POST['db_username'],$_POST['db_pass']);
         }
 
