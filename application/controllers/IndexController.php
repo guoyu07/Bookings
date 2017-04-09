@@ -11,13 +11,20 @@ class IndexController extends Zend_Controller_Action
     public function indexAction()
     {
         // action body
-        $newconfig = new Application_Model_Book();
-        $newconfig->newConfig('roombooker','root','');
+        //$newconfig = new Application_Model_Book();
+        //$newconfig->newConfig('roombooker','root','');
 
     }
 
+    public function createdatabaseAction()
+    {
+        if ($this->_request->isPost()){
+            $newconfig = new Application_Model_Book();
+            echo $_POST['db_username'];
+            $newconfig->newConfig($_POST['db_name'],$_POST['db_username'],$_POST['db_pass']);
+        }
 
-
+    }
 
 }
 
